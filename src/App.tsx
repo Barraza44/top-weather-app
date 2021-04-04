@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import WeatherForecast from "./weatherForecast";
+import SearchBox from "./searchBox";
 
 function App() {
   const [ location, setLocation ] = useState({lat: 0, lon: 0});
@@ -13,7 +14,7 @@ function App() {
       let longitude = position.coords.longitude;
       setLocation({lat: latitude, lon: longitude});
       setCity({cityName: ""});
-      setVisibility("hidden")
+      setVisibility("hidden");
       console.log(location);
     }
 
@@ -28,8 +29,9 @@ function App() {
   }
   return (
     <div className="App">
-      <p>Hey</p>
-      <button onClick={() => geoLocate()} className={visibility}>Locate</button>
+      <h1>Pick a city to start</h1>
+      <SearchBox />
+      <button onClick={() => geoLocate()} className={visibility}>Use geolocation instead</button>
       {city.cityName === ""
         ? <WeatherForecast city={""} geoLocation={location} />
         : <WeatherForecast city={city.cityName} geoLocation={{lat: 0, lon: 0}} />
