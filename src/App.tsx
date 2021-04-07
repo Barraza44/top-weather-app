@@ -29,8 +29,8 @@ function App() {
   }
   return (
     <div className="App">
-      <h1>Pick a city to start</h1>
-      <SearchBox />
+      <h1 className={visibility}>Pick a city to start</h1>
+      <SearchBox visibility={visibility} />
       <button onClick={() => geoLocate()} className={visibility}>Use geolocation instead</button>
       {city.cityName === ""
         ? <WeatherForecast city={""} geoLocation={location} />

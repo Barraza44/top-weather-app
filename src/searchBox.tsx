@@ -1,8 +1,9 @@
 import React from "react";
 
-const SearchBox = () => {
+// @ts-ignore
+const SearchBox = ({visibility}) => {
   return(
-    <form>
+    <form className={visibility}>
       <input type="text" name="citySearch" id="city-search"/>
     </form>
   )
