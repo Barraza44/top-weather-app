@@ -4,10 +4,13 @@ import React from "react";
 const WeatherForecast = ({city, geoLocation}) => {
   console.log(city);
   return (
-    <div>
-      <p>{`Your location is ${geoLocation.lat}, ${geoLocation.lon}`}</p>
-      <p>{`The city is ${city}`}</p>
-    </div>
+    <main>
+      <h1>31 °C</h1>
+      <h2>Sunny in Guadalajara</h2>
+      <div>
+        <p>Box</p>
+      </div>
+    </main>
   )
 }
 
