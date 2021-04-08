@@ -5,7 +5,7 @@ import SearchBox from "./searchBox";
 
 function App() {
   const [ location, setLocation ] = useState({lat: 0, lon: 0});
-  const [ city, setCity] = useState({cityName: "London"});
+  const [ city, setCity] = useState({cityName: ""});
   const [ visibility, setVisibility ] = useState("shown")
   const geoLocate = () => {
 
@@ -32,9 +32,9 @@ function App() {
       <h1 className={visibility}>Pick a city to start</h1>
       <SearchBox visibility={visibility} />
       <button onClick={() => geoLocate()} className={visibility}>Use geolocation instead</button>
-      {city.cityName === ""
-        ? <WeatherForecast city={""} geoLocation={location} />
-        : <WeatherForecast city={city.cityName} geoLocation={{lat: 0, lon: 0}} />
+      {visibility === "hidden"
+        ? <WeatherForecast  city={city.cityName} geoLocation={location} />
+        : null
       }
     </div>
   );

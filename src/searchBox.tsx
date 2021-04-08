@@ -1,9 +1,9 @@
 import React from "react";
 
 // @ts-ignore
-const SearchBox = ({visibility}) => {
+const SearchBox = (props) => {
   return(
-    <form className={visibility}>
+    <form className={props.visibility}>
       <input type="text" name="citySearch" id="city-search"/>
     </form>
   )
