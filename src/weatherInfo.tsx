@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const WeatherInfo = () => {
+// @ts-ignore
+const WeatherInfo = ({number, icon, type}) => {
   return (
     <motion.div
       initial={{
@@ -14,7 +15,9 @@ const WeatherInfo = () => {
       }}
       layout
     >
-      <p>Hey</p>
+      <img src={icon} alt=""/>
+      <p>{number}</p>
+      <p>{type}</p>
     </motion.div>
   );
 }
