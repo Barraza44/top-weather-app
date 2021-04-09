@@ -14,12 +14,12 @@ const WeatherForecast = ({city, geoLocation}) => {
   console.log(city);
   const [ forecast, setForecast ] = useState(
     [
-      {data: 0, icon: FeelsLike, type: "Feels like"},
-      {data: 0, icon: MinTemp, type: "Min Temp."},
-      {data: 0, icon: MaxTemp, type: "Max Temp."},
-      {data: 0, icon: Humidity, type: "Humidity"},
-      {data: 0, icon: Frame, type: "Visibility"},
-      {data: 0, icon: Wind, type: "Wind"}
+      {"data": 0, "icon": FeelsLike, "type": "Feels like", "key": 0},
+      {"data": 0, "icon": MinTemp, "type": "Min Temp.", "key": 1},
+      {"data": 0, "icon": MaxTemp, "type": "Max Temp.", "key": 2},
+      {"data": 0, "icon": Humidity, "type": "Humidity", "key": 3},
+      {"data": 0, "icon": Frame, "type": "Visibility", "key": 4},
+      {"data": 0, "icon": Wind, "type": "Wind", "key": 5}
     ]
   );
   const [ temperature, setTemperature ] = useState(0);
@@ -38,14 +38,14 @@ const WeatherForecast = ({city, geoLocation}) => {
       fetch(apiUri)
         .then((response) => response.json())
         .then((response) => {
-          const main: IResponse = response.main
+          const main: IResponse = response.main;
           setForecast([
-            {data: main.feels_like, icon: FeelsLike, type: "Feels like"},
-            {data: main.temp_min, icon: MinTemp, type: "Min Temp."},
-            {data: main.temp_max, icon: MaxTemp, type: "Max Temp."},
-            {data: main.humidity, icon: Humidity, type: "Humidity"},
-            {data: response.visibility, icon: Frame, type: "Visibility"},
-            {data: response.wind, icon: Wind, type: "Wind"}
+            {"data": main.feels_like, "icon": FeelsLike, "type": "Feels like", "key": 0},
+            {"data": main.temp_min, "icon": MinTemp, "type": "Min Temp.", "key": 1},
+            {"data": main.temp_max, "icon": MaxTemp, "type": "Max Temp.", "key": 2},
+            {"data": main.humidity, "icon": Humidity, "type": "Humidity", "key": 3},
+            {"data": response.visibility, "icon": Frame, "type": "Visibility", "key": 4},
+            {"data": response.wind.speed, "icon": Wind, "type": "Wind", "key": 5}
           ]);
           setTemperature(main.temp);
           setDescription(response.weather[0].description);
@@ -55,14 +55,13 @@ const WeatherForecast = ({city, geoLocation}) => {
 
   },[city, geoLocation]);
 
-
   return (
     <main>
       <h1>{temperature}</h1>
       <h2>{`${description} in ${cityName !== "" ? cityName : city}`}</h2>
       <div className="forecast">
-        {forecast.map(info => (
-          <WeatherInfo type={info.type} icon={info.icon} number={info.data} />
+        {forecast.map(data =>(
+          <WeatherInfo number={data.data} icon={data.icon} type={data.type} key={data.key} />
         ))}
       </div>
     </main>
