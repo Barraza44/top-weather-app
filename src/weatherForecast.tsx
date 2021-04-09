@@ -14,12 +14,12 @@ const WeatherForecast = ({city, geoLocation}) => {
   console.log(city);
   const [ forecast, setForecast ] = useState(
     [
-      {feelsLike: 0, icon: FeelsLike},
-      {tempMin: 0, icon: MinTemp},
-      {tempMax: 0, icon: MaxTemp},
-      {humidity: 0, icon: Humidity},
-      {visibility: 0, icon: Frame},
-      {wind: 0, icon: Wind}
+      {data: 0, icon: FeelsLike, type: "Feels like"},
+      {data: 0, icon: MinTemp, type: "Min Temp."},
+      {data: 0, icon: MaxTemp, type: "Max Temp."},
+      {data: 0, icon: Humidity, type: "Humidity"},
+      {data: 0, icon: Frame, type: "Visibility"},
+      {data: 0, icon: Wind, type: "Wind"}
     ]
   );
   const [ temperature, setTemperature ] = useState(0);
@@ -40,12 +40,12 @@ const WeatherForecast = ({city, geoLocation}) => {
         .then((response) => {
           const main: IResponse = response.main
           setForecast([
-            {feelsLike: main.feels_like, icon: FeelsLike},
-            {tempMin: main.temp_min, icon: MinTemp},
-            {tempMax: main.temp_max, icon: MaxTemp},
-            {humidity: main.humidity, icon: Humidity},
-            {visibility: response.visibility, icon: Frame},
-            {wind: response.wind, icon: Wind}
+            {data: main.feels_like, icon: FeelsLike, type: "Feels like"},
+            {data: main.temp_min, icon: MinTemp, type: "Min Temp."},
+            {data: main.temp_max, icon: MaxTemp, type: "Max Temp."},
+            {data: main.humidity, icon: Humidity, type: "Humidity"},
+            {data: response.visibility, icon: Frame, type: "Visibility"},
+            {data: response.wind, icon: Wind, type: "Wind"}
           ]);
           setTemperature(main.temp);
           setDescription(response.weather[0].description);
@@ -61,7 +61,9 @@ const WeatherForecast = ({city, geoLocation}) => {
       <h1>{temperature}</h1>
       <h2>{`${description} in ${cityName !== "" ? cityName : city}`}</h2>
       <div className="forecast">
-        <p>Box</p>
+        {forecast.map(info => (
+          <WeatherInfo type={info.type} icon={info.icon} number={info.data} />
+        ))}
       </div>
     </main>
   )
