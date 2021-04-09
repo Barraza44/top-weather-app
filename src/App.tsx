@@ -22,6 +22,8 @@ function App() {
 
     if(!navigator.geolocation) {
       console.error("Geolocation unsupported");
+      // @ts-ignore
+      setLocation({lat: null, lon: null});
     } else {
       navigator.geolocation.getCurrentPosition(locate, error);
     }
