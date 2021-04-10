@@ -18,10 +18,22 @@
     font-size: 1.40rem;
     font-family: Cabin, sans-serif;
     margin-bottom: 0;
+    justify-self: start;
 }
 
 .card p {
     font-size: 1.125rem;
     font-family: Raleway, sans-serif;
     font-weight: 500;
+    justify-self: start;
+}
+
+@media screen and (min-width: 768px) {
+    .card h3 {
+        font-size: 1.75rem;
+    }
+
+    .card p {
+        font-size: 1.35rem;
+    }
 }
