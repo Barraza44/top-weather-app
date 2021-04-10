@@ -16,7 +16,13 @@
 }
 
 .card h3 {
-    font-size: 1.25rem;
+    font-size: 1.40rem;
     font-family: Cabin, sans-serif;
     margin-bottom: 0;
+}
+
+.card p {
+    font-size: 1.125rem;
+    font-family: Raleway, sans-serif;
+    font-weight: 500;
 }
