@@ -4,16 +4,20 @@ main {
     flex-flow: column nowrap;
 }
 
-h1 {
+main h1 {
     font-family: Cabin,sans-serif;
     font-size: 4rem;
     font-weight: bold;
+    color: white;
+    margin: 40px 0 10px 20px
 }
 
-h2 {
+main h2 {
     font-family: Raleway, sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
+    color: white;
+    margin: 0 0 80px 20px
 }
 
 .head {
@@ -27,7 +31,7 @@ h2 {
     border-top-left-radius: 35px;
     border-top-right-radius: 35px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(164px, 1fr));
     column-gap: 10px;
     row-gap: 2rem;
     place-items: center;
