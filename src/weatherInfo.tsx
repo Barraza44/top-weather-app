@@ -17,7 +17,7 @@ const WeatherInfo = ({number, icon, type}) => {
       className="card"
     >
       <img src={icon} alt=""/>
-      <p>{number}</p>
+      <h3>{`${number}°C`}</h3>
       <p>{type}</p>
     </motion.div>
   );

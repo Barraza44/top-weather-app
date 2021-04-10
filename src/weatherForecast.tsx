@@ -59,7 +59,7 @@ const WeatherForecast = ({city, geoLocation}) => {
   return (
     <main>
       <div className="head">
-      <h1>{temperature}</h1>
+      <h1>{`${temperature} °C`}</h1>
       <h2>{`${description} in ${cityName !== "" ? cityName : city}`}</h2>
       </div>
       <div className="forecast">
