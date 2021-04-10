@@ -11,10 +11,10 @@ main {
 .forecast {
     height: 70%;
     background-color: white;
-    padding: 40px 20px 0 20px;
+    padding: 35px 18px 0 18px;
     border-top-left-radius: 35px;
     border-top-right-radius: 35px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 7.2rem);
-    gap: 10%;
+    grid-template-columns: repeat(auto-fill, 10rem);
+    gap: 1rem;
 }
