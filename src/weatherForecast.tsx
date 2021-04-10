@@ -8,6 +8,7 @@ import Humidity from "./vector/Humidity.svg";
 import MaxTemp from "./vector/MaxTemp.svg";
 import MinTemp from "./vector/MinTemp.svg";
 import Wind from "./vector/Wind.svg";
+import "./weather-forecast.css";
 
 // @ts-ignore
 const WeatherForecast = ({city, geoLocation}) => {
@@ -57,11 +58,17 @@ const WeatherForecast = ({city, geoLocation}) => {
 
   return (
     <main>
+      <div className="head">
       <h1>{temperature}</h1>
       <h2>{`${description} in ${cityName !== "" ? cityName : city}`}</h2>
+      </div>
       <div className="forecast">
         {forecast.map(data =>(
-          <WeatherInfo number={data.data} icon={data.icon} type={data.type} key={data.key} />
+          <WeatherInfo
+            number={data.data}
+            icon={data.icon}
+            type={data.type}
+            key={data.key} />
         ))}
       </div>
     </main>

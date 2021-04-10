@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import "./weather-info.css";
 // @ts-ignore
 const WeatherInfo = ({number, icon, type}) => {
   return (
@@ -14,6 +14,7 @@ const WeatherInfo = ({number, icon, type}) => {
         scale: 1
       }}
       layout
+      className="card"
     >
       <img src={icon} alt=""/>
       <p>{number}</p>
