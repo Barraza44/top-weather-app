@@ -6,7 +6,7 @@ import SearchBox from "./searchBox";
 function App() {
   const [ location, setLocation ] = useState({lat: 0, lon: 0});
   const [ city, setCity] = useState({cityName: ""});
-  const [ visibility, setVisibility ] = useState("shown")
+  const [ visibility, setVisibility ] = useState("shown");
   const geoLocate = () => {
 
     const locate = (position: GeolocationPosition) => {
