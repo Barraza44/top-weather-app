@@ -4,6 +4,18 @@ main {
     flex-flow: column nowrap;
 }
 
+h1 {
+    font-family: Cabin,sans-serif;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: Raleway, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
 .head {
     height: 30%;
 }
@@ -15,6 +27,8 @@ main {
     border-top-left-radius: 35px;
     border-top-right-radius: 35px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 10rem);
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    column-gap: 10px;
+    row-gap: 2rem;
+    place-items: center;
 }
