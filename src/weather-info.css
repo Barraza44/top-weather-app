@@ -1,6 +1,5 @@
 .card {
-    width: clamp(140px, 170px, 280px);
-    height: clamp(120px, 130px, 180px);
+    width: 100%;
     background: #FFFFFF;
     box-shadow: 0 4px 7px 3px rgba(196, 196, 196, 0.45);
     border-radius: 35px;
