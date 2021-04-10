@@ -1,0 +1,20 @@
+main {
+    background-color: #07B2F5;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.head {
+    height: 30%;
+}
+
+.forecast {
+    height: 70%;
+    background-color: white;
+    padding: 40px 20px 0 20px;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 7.2rem);
+    gap: 10%;
+}
