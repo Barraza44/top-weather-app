@@ -12,7 +12,7 @@ import "./weather-forecast.css";
 import IWeather from "./interfaces/IWeather";
 import SettingsPrompt from "./SettingsPrompt";
 
-const WeatherForecast = ({city, geoLocation}: IWeather) => {
+const WeatherForecast = ({city, geoLocation, changeCity}: IWeather) => {
   console.log(city);
   const [ forecast, setForecast ] = useState(
     [
@@ -34,7 +34,7 @@ const WeatherForecast = ({city, geoLocation}: IWeather) => {
   if(geoLocation.lat !== null && geoLocation.lon !== null) {
     apiUri = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.lat}&lon=${geoLocation.lon}&appid=${myApiKey}&units=metric`;
   } else {
-    apiUri = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myApiKey}&units=$metric`;
+    apiUri = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myApiKey}&units=metric`;
   }
 
   useEffect(() => {
@@ -97,7 +97,7 @@ const WeatherForecast = ({city, geoLocation}: IWeather) => {
           />
         ))}
         <div className="container"/>
-        <SettingsPrompt visible="settings-shown"  handleChange={handleChange}/>
+        <SettingsPrompt visible="settings-shown"  handleChange={handleChange} changeCity={changeCity}/>
       </div>
     </main>
   )

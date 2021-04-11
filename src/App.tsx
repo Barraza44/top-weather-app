@@ -47,6 +47,11 @@ function App() {
     }
   }
 
+  const changeCity = () => {
+    setVisibility("shown");
+    setStyleClass(["App", "opaque"]);
+  }
+
   const handleSubmit = (e: any) => {
     e.preventDefault();
   }
@@ -64,7 +69,7 @@ function App() {
         <button className={visibility} onClick={handleClick}>Search</button>
         <button onClick={() => geoLocate()} className={visibility}>Use geolocation instead</button>
         {visibility === "hidden"
-          ? <WeatherForecast  city={city.cityName} geoLocation={location} />
+          ? <WeatherForecast  city={city.cityName} geoLocation={location} changeCity={changeCity} />
           : null
         }
       </div>

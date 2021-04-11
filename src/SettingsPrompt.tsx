@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import ISettings from "./interfaces/ISettings";
 import "./settings-prompt.css";
 
-const SettingsPrompt = ({visible,handleChange}: ISettings) => {
+const SettingsPrompt = ({visible,handleChange, changeCity}: ISettings) => {
   return (
     <motion.div
       initial={{
@@ -33,7 +33,7 @@ const SettingsPrompt = ({visible,handleChange}: ISettings) => {
         <input type="radio" name="units" id="standard-units" value="standard"/>
       </div>
 
-      <button className="change">Change city</button>
+      <button className="change" onClick={changeCity}>Change city</button>
       <button className="done">Done</button>
     </motion.div>
   );

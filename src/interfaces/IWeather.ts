@@ -3,5 +3,6 @@ export default interface IWeather {
   geoLocation: {
     lat: number,
     lon: number
-  }
+  },
+  changeCity: any
 }
