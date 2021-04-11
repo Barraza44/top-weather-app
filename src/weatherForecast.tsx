@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import WeatherInfo from "./weatherInfo";
 import myApiKey from "./apiKey";
-import IResponse from "./IResponse";
+import IResponse from "./interfaces/IResponse";
 import FeelsLike from "./vector/FeelsLike.svg";
 import Frame from "./vector/Frame.svg";
 import Humidity from "./vector/Humidity.svg";
@@ -26,13 +26,14 @@ const WeatherForecast = ({city, geoLocation}) => {
   const [ temperature, setTemperature ] = useState(0);
   const [ cityName, setCityName ] = useState("");
   const [ description, setDescription ] = useState("");
+  const [ units, setUnits ] = useState("metric")
 
   let apiUri: string;
 
   if(geoLocation.lat !== null && geoLocation.lon !== null) {
-    apiUri = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.lat}&lon=${geoLocation.lon}&appid=${myApiKey}&units=metric`;
+    apiUri = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.lat}&lon=${geoLocation.lon}&appid=${myApiKey}&units=${units}`;
   } else {
-    apiUri = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myApiKey}&units=metric`;
+    apiUri = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myApiKey}&units=${units}`;
   }
 
   useEffect(() => {
@@ -54,7 +55,7 @@ const WeatherForecast = ({city, geoLocation}) => {
           console.log(response.name);
         });
 
-  },[city, geoLocation]);
+  },[city, geoLocation, units]);
 
   return (
     <main>
@@ -63,7 +64,7 @@ const WeatherForecast = ({city, geoLocation}) => {
       <h2>{`${description} in ${cityName !== "" ? cityName : city}`}</h2>
       </div>
       <div className="forecast">
-        {forecast.map(data =>(
+        {forecast.map(data => (
           <WeatherInfo
             number={data.data}
             icon={data.icon}
