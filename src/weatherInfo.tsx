@@ -14,7 +14,10 @@ const WeatherInfo = ({number, icon, type, unit}: IWeatherInfo) => {
       weatherData = Math.ceil(number + 273.15);
       break;
     case "mph":
-      weatherData = number * 2.237;
+      weatherData = Math.round(number * 2.237);
+      break;
+    case "km/h":
+      weatherData = Math.round(number * 3.6);
       break;
     default:
       weatherData = number;
