@@ -64,7 +64,7 @@ const WeatherForecast = ({city, geoLocation}: IWeather) => {
       unitsArray = ["°C", "°C", "°C", "%", "m", "m/s"];
       break;
     case "imperial":
-      unitsArray = ["°F", "°F", "°F", "%", "mi", "mph"];
+      unitsArray = ["°F", "°F", "°F", "%", "m", "mph"];
       break;
     default:
       unitsArray = ["K", "K", "K", "%", "m", "m/s"];
@@ -74,7 +74,7 @@ const WeatherForecast = ({city, geoLocation}: IWeather) => {
   return (
     <main>
       <div className="head">
-      <h1>{`${Math.ceil(temperature)}${unitsArray[0]}`}</h1>
+      <h1>{`${Math.ceil(temperature)} ${unitsArray[0]}`}</h1>
       <h2>{`${description} in ${cityName !== "" ? cityName : city}`}</h2>
       </div>
       <div className="forecast">
