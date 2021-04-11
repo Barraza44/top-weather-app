@@ -1,3 +1,4 @@
 export default interface ISettings {
-  visible: string
+  visible: string,
+  handleChange: any
 }
