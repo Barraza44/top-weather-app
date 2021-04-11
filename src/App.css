@@ -1,3 +1,70 @@
 .hidden {
     display: none;
 }
+
+.App {
+    background: linear-gradient(216deg, #07b2f5, #5cc230);
+    background-size: 400% 400%;
+    animation: gradient 9s ease infinite;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.opaque {
+    min-width: 50vw;
+    min-height: 50vh;
+    background-color: white;
+    border-radius: 35px;
+    padding: 30px;
+    display: flex;
+    flex-flow: column nowrap;
+    place-items: center;
+}
+
+.opaque h1 {
+    margin-top: 0;
+    font-family: Cabin, sans-serif;
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+.opaque label {
+    font-family: Raleway, sans-serif;
+    font-size: 1rem;
+}
+
+.opaque input {
+    width: 50vw;
+    border-radius: 15px;
+    height: 30px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 7px 3px rgba(196, 196, 196, 0.45);
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.opaque button {
+    width: 10rem;
+    height: 3rem;
+    background: #FFFFFF;
+    box-shadow: 0 4px 7px 3px rgba(196, 196, 196, 0.45);
+    border-radius: 15px;
+    border: none;
+    margin: 5px;
+    transition: all 500ms cubic-bezier(.22,.61,.36,1);
+    cursor: pointer;
+}
+
+.opaque button:hover {
+    background: #07B2F5;
+    color: white;
+}
+
+@keyframes gradient {
+    0%{background-position:0 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0 50%}
+}
