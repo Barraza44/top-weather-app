@@ -55,7 +55,12 @@ function App() {
     <div className={styleClass[0]}>
       <div className={styleClass[1]}>
         <h1 className={visibility}>Pick a city to start</h1>
-        <SearchBox visibility={visibility} handleSearch={handleSearch} city={city.cityName} handleSubmit={handleSubmit} />
+        <SearchBox
+          visibility={visibility}
+          handleSearch={handleSearch}
+          city={city.cityName}
+          handleSubmit={handleSubmit}
+        />
         <button className={visibility} onClick={handleClick}>Search</button>
         <button onClick={() => geoLocate()} className={visibility}>Use geolocation instead</button>
         {visibility === "hidden"
