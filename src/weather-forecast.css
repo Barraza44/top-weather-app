@@ -2,6 +2,8 @@ main {
     background-color: #07B2F5;
     display: flex;
     flex-flow: column nowrap;
+    position: relative;
+    z-index: 0;
 }
 
 main h1 {
@@ -35,4 +37,18 @@ main h2 {
     column-gap: 10px;
     row-gap: 2rem;
     place-items: center;
+}
+
+.container {
+    position: absolute;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    opacity: 20%;
+    z-index: 1;
+    left: 0;
+    top: 0;
 }
