@@ -26,7 +26,7 @@ const WeatherForecast = ({city, geoLocation}: IWeather) => {
   const [ temperature, setTemperature ] = useState(0);
   const [ cityName, setCityName ] = useState("");
   const [ description, setDescription ] = useState("");
-  const [ units, setUnits ] = useState("imperial");
+  const [ units, setUnits ] = useState("metric");
 
   let apiUri: string;
 
