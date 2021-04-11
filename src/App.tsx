@@ -37,10 +37,14 @@ function App() {
   }
 
   const handleClick = () => {
-    setVisibility("hidden");
-    setStyleClass(["App2", "opaque2"]);
-    // @ts-ignore
-    setLocation({lat: null, lon: null});
+    if(city.cityName === "") {
+      alert("The search box cannot be empty!");
+    } else {
+      setVisibility("hidden");
+      setStyleClass(["App2", "opaque2"]);
+      // @ts-ignore
+      setLocation({lat: null, lon: null});
+    }
   }
 
   const handleSubmit = (e: any) => {
