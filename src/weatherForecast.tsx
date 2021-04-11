@@ -26,7 +26,7 @@ const WeatherForecast = ({city, geoLocation}: IWeather) => {
   const [ temperature, setTemperature ] = useState(0);
   const [ cityName, setCityName ] = useState("");
   const [ description, setDescription ] = useState("");
-  const [ units, setUnits ] = useState("metric")
+  const [ units, setUnits ] = useState("metric");
 
   let apiUri: string;
 
@@ -57,10 +57,24 @@ const WeatherForecast = ({city, geoLocation}: IWeather) => {
 
   },[city, geoLocation, units]);
 
+  let unitsArray: string[];
+
+  switch (units) {
+    case "metric":
+      unitsArray = ["°C", "°C", "°C", "%", "m", "m/s"];
+      break;
+    case "imperial":
+      unitsArray = ["°F", "°F", "°F", "%", "mi", "mph"];
+      break;
+    default:
+      unitsArray = ["K", "K", "K", "%", "m", "m/s"];
+      break;
+  }
+
   return (
     <main>
       <div className="head">
-      <h1>{`${Math.ceil(temperature)} °C`}</h1>
+      <h1>{`${Math.ceil(temperature)}${unitsArray}`}</h1>
       <h2>{`${description} in ${cityName !== "" ? cityName : city}`}</h2>
       </div>
       <div className="forecast">
@@ -69,7 +83,9 @@ const WeatherForecast = ({city, geoLocation}: IWeather) => {
             number={data.data}
             icon={data.icon}
             type={data.type}
-            key={data.key} />
+            key={data.key}
+            unit={unitsArray[data.key]}
+          />
         ))}
       </div>
     </main>

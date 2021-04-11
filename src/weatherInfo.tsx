@@ -4,7 +4,7 @@ import "./weather-info.css";
 import IWeatherInfo from "./interfaces/IWeatherInfo";
 
 
-const WeatherInfo = ({number, icon, type}: IWeatherInfo) => {
+const WeatherInfo = ({number, icon, type, unit}: IWeatherInfo) => {
   return (
     <motion.div
       initial={{
@@ -19,7 +19,7 @@ const WeatherInfo = ({number, icon, type}: IWeatherInfo) => {
       className="card"
     >
       <img src={icon} alt=""/>
-      <h3>{`${number}°C`}</h3>
+      <h3>{`${number} ${unit}`}</h3>
       <p>{type}</p>
     </motion.div>
   );
