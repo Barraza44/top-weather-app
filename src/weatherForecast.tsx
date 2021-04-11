@@ -76,6 +76,10 @@ const WeatherForecast = ({city, geoLocation}: IWeather) => {
       break;
   }
 
+  const handleChange = (e: any) => {
+    setUnits(e.target.value);
+  }
+
   return (
     <main>
       <div className="head">
@@ -93,7 +97,7 @@ const WeatherForecast = ({city, geoLocation}: IWeather) => {
           />
         ))}
         <div className="container"/>
-        <SettingsPrompt visible="settings-shown" />
+        <SettingsPrompt visible="settings-shown"  handleChange={handleChange}/>
       </div>
     </main>
   )
