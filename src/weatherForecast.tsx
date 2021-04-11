@@ -10,6 +10,7 @@ import MinTemp from "./vector/MinTemp.svg";
 import Wind from "./vector/Wind.svg";
 import "./weather-forecast.css";
 import IWeather from "./interfaces/IWeather";
+import SettingsPrompt from "./SettingsPrompt";
 
 const WeatherForecast = ({city, geoLocation}: IWeather) => {
   console.log(city);
@@ -91,6 +92,8 @@ const WeatherForecast = ({city, geoLocation}: IWeather) => {
             unit={unitsArray[data.key]}
           />
         ))}
+        <div className="container"/>
+        <SettingsPrompt visible="settings-shown" />
       </div>
     </main>
   )
