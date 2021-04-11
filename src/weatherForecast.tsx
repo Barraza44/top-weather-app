@@ -74,7 +74,7 @@ const WeatherForecast = ({city, geoLocation}: IWeather) => {
   return (
     <main>
       <div className="head">
-      <h1>{`${Math.ceil(temperature)}${unitsArray}`}</h1>
+      <h1>{`${Math.ceil(temperature)}${unitsArray[0]}`}</h1>
       <h2>{`${description} in ${cityName !== "" ? cityName : city}`}</h2>
       </div>
       <div className="forecast">
@@ -85,6 +85,7 @@ const WeatherForecast = ({city, geoLocation}: IWeather) => {
             type={data.type}
             key={data.key}
             unit={unitsArray[data.key]}
+            idNumber={data.key}
           />
         ))}
       </div>
