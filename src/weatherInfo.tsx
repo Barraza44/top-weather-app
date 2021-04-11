@@ -4,7 +4,24 @@ import "./weather-info.css";
 import IWeatherInfo from "./interfaces/IWeatherInfo";
 
 
-const WeatherInfo = ({number, icon, type, unit, idNumber}: IWeatherInfo) => {
+const WeatherInfo = ({number, icon, type, unit}: IWeatherInfo) => {
+  let weatherData: number;
+  switch (unit) {
+    case "°F":
+      weatherData = Math.ceil(((number * (9/5)) + 32));
+      break;
+    case "K":
+      weatherData = Math.ceil(number + 273.15);
+      break;
+    case "mph":
+      weatherData = number * 2.237;
+      break;
+    default:
+      weatherData = number;
+      break;
+  }
+
+
   return (
     <motion.div
       initial={{
@@ -19,10 +36,7 @@ const WeatherInfo = ({number, icon, type, unit, idNumber}: IWeatherInfo) => {
       className="card"
     >
       <img src={icon} alt=""/>
-      {idNumber === 0 || idNumber === 1 || idNumber === 2
-        ? <h3>{`${Math.ceil(number)} ${unit}`}</h3>
-        : <h3>{`${number} ${unit}`}</h3>
-      }
+      <h3>{`${weatherData} ${unit}`}</h3>
       <p>{type}</p>
     </motion.div>
   );

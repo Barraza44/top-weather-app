@@ -3,5 +3,4 @@ export default interface IWeatherInfo {
   icon: any,
   type: string,
   unit: string
-  idNumber: number
 }

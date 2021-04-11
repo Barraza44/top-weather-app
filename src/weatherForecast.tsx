@@ -31,9 +31,9 @@ const WeatherForecast = ({city, geoLocation}: IWeather) => {
   let apiUri: string;
 
   if(geoLocation.lat !== null && geoLocation.lon !== null) {
-    apiUri = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.lat}&lon=${geoLocation.lon}&appid=${myApiKey}&units=${units}`;
+    apiUri = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.lat}&lon=${geoLocation.lon}&appid=${myApiKey}&units=metric`;
   } else {
-    apiUri = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myApiKey}&units=${units}`;
+    apiUri = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myApiKey}&units=$metric`;
   }
 
   useEffect(() => {
@@ -55,26 +55,30 @@ const WeatherForecast = ({city, geoLocation}: IWeather) => {
           console.log(response.name);
         });
 
-  },[city, geoLocation, units]);
+  },[city, geoLocation]);
 
   let unitsArray: string[];
+  let temperatureData: number;
 
   switch (units) {
     case "metric":
       unitsArray = ["°C", "°C", "°C", "%", "m", "m/s"];
+      temperatureData = temperature;
       break;
     case "imperial":
       unitsArray = ["°F", "°F", "°F", "%", "m", "mph"];
+      temperatureData = (temperature * (9/5) + 32);
       break;
     default:
       unitsArray = ["K", "K", "K", "%", "m", "m/s"];
+      temperatureData = (temperature + 273.15);
       break;
   }
 
   return (
     <main>
       <div className="head">
-      <h1>{`${Math.ceil(temperature)} ${unitsArray[0]}`}</h1>
+      <h1>{`${Math.ceil(temperatureData)} ${unitsArray[0]}`}</h1>
       <h2>{`${description} in ${cityName !== "" ? cityName : city}`}</h2>
       </div>
       <div className="forecast">
@@ -85,7 +89,6 @@ const WeatherForecast = ({city, geoLocation}: IWeather) => {
             type={data.type}
             key={data.key}
             unit={unitsArray[data.key]}
-            idNumber={data.key}
           />
         ))}
       </div>
