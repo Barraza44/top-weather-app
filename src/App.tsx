@@ -7,6 +7,7 @@ function App() {
   const [ location, setLocation ] = useState({lat: 0, lon: 0});
   const [ city, setCity] = useState({cityName: ""});
   const [ visibility, setVisibility ] = useState("shown");
+  const [ styleClass, setStyleClass ] = useState(["App", "opaque"]);
   const geoLocate = () => {
 
     const locate = (position: GeolocationPosition) => {
@@ -15,6 +16,7 @@ function App() {
       setLocation({lat: latitude, lon: longitude});
       setCity({cityName: ""});
       setVisibility("hidden");
+      setStyleClass(["App2", "opaque2"]);
       console.log(location);
     }
 
@@ -30,14 +32,17 @@ function App() {
 
   }
   return (
-    <div className="App">
-      <h1 className={visibility}>Pick a city to start</h1>
-      <SearchBox visibility={visibility} />
-      <button onClick={() => geoLocate()} className={visibility}>Use geolocation instead</button>
-      {visibility === "hidden"
-        ? <WeatherForecast  city={city.cityName} geoLocation={location} />
-        : null
-      }
+    <div className={styleClass[0]}>
+      <div className={styleClass[1]}>
+        <h1 className={visibility}>Pick a city to start</h1>
+        <SearchBox visibility={visibility} />
+        <button className={visibility}>Search</button>
+        <button onClick={() => geoLocate()} className={visibility}>Use geolocation instead</button>
+        {visibility === "hidden"
+          ? <WeatherForecast  city={city.cityName} geoLocation={location} />
+          : null
+        }
+      </div>
     </div>
   );
 }
