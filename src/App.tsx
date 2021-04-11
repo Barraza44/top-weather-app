@@ -31,12 +31,28 @@ function App() {
     }
 
   }
+
+  const handleSearch = (e: any) => {
+    setCity({cityName: e.target.value});
+  }
+
+  const handleClick = () => {
+    setVisibility("hidden");
+    setStyleClass(["App2", "opaque2"]);
+    // @ts-ignore
+    setLocation({lat: null, lon: null});
+  }
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+  }
+
   return (
     <div className={styleClass[0]}>
       <div className={styleClass[1]}>
         <h1 className={visibility}>Pick a city to start</h1>
-        <SearchBox visibility={visibility} />
-        <button className={visibility}>Search</button>
+        <SearchBox visibility={visibility} handleSearch={handleSearch} city={city.cityName} handleSubmit={handleSubmit} />
+        <button className={visibility} onClick={handleClick}>Search</button>
         <button onClick={() => geoLocate()} className={visibility}>Use geolocation instead</button>
         {visibility === "hidden"
           ? <WeatherForecast  city={city.cityName} geoLocation={location} />
