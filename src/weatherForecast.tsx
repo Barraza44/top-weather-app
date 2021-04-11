@@ -9,9 +9,9 @@ import MaxTemp from "./vector/MaxTemp.svg";
 import MinTemp from "./vector/MinTemp.svg";
 import Wind from "./vector/Wind.svg";
 import "./weather-forecast.css";
+import IWeather from "./interfaces/IWeather";
 
-// @ts-ignore
-const WeatherForecast = ({city, geoLocation}) => {
+const WeatherForecast = ({city, geoLocation}: IWeather) => {
   console.log(city);
   const [ forecast, setForecast ] = useState(
     [

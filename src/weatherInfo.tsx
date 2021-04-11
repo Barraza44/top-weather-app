@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./weather-info.css";
-// @ts-ignore
-const WeatherInfo = ({number, icon, type}) => {
+import IWeatherInfo from "./interfaces/IWeatherInfo";
+
+
+const WeatherInfo = ({number, icon, type}: IWeatherInfo) => {
   return (
     <motion.div
       initial={{
