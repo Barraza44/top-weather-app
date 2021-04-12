@@ -29,7 +29,7 @@ const WeatherForecast = ({city, geoLocation, changeCity}: IWeather) => {
   const [ cityName, setCityName ] = useState("");
   const [ description, setDescription ] = useState("");
   const [ units, setUnits ] = useState("metric");
-  const [ visible, setVisible ] = useState("shown");
+  const [ visible, setVisible ] = useState("hidden");
 
   let apiUri: string;
 
