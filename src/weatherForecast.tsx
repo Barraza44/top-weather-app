@@ -8,6 +8,7 @@ import Humidity from "./vector/Humidity.svg";
 import MaxTemp from "./vector/MaxTemp.svg";
 import MinTemp from "./vector/MinTemp.svg";
 import Wind from "./vector/Wind.svg";
+import settingsIcon from "./vector/settings.svg";
 import "./weather-forecast.css";
 import IWeather from "./interfaces/IWeather";
 import SettingsPrompt from "./SettingsPrompt";
@@ -28,6 +29,7 @@ const WeatherForecast = ({city, geoLocation, changeCity}: IWeather) => {
   const [ cityName, setCityName ] = useState("");
   const [ description, setDescription ] = useState("");
   const [ units, setUnits ] = useState("metric");
+  const [ visible, setVisible ] = useState("shown");
 
   let apiUri: string;
 
@@ -76,15 +78,23 @@ const WeatherForecast = ({city, geoLocation, changeCity}: IWeather) => {
       break;
   }
 
-  const handleChange = (e: any) => {
-    setUnits(e.target.value);
+  const handleChange = (e: any) => setUnits(e.target.value);
+
+
+  const hideSettings = () => {
+    setVisible("hidden");
   }
+
+  const showSettings = () => setVisible("shown")
 
   return (
     <main>
       <div className="head">
       <h1>{`${Math.ceil(temperatureData)} ${unitsArray[0]}`}</h1>
       <h2>{`${description} in ${cityName !== "" ? cityName : city}`}</h2>
+      <button id="setting" onClick={showSettings}>
+        <img src={settingsIcon} alt=""/>
+      </button>
       </div>
       <div className="forecast">
         {forecast.map(data => (
@@ -96,8 +106,22 @@ const WeatherForecast = ({city, geoLocation, changeCity}: IWeather) => {
             unit={unitsArray[data.key]}
           />
         ))}
-        <div className="container"/>
-        <SettingsPrompt visible="settings-shown"  handleChange={handleChange} changeCity={changeCity}/>
+        {
+          visible === "shown" ?
+            <div className={`container-${visible}`}/>
+            : null
+        }
+        {
+          visible === "shown" ?
+            <SettingsPrompt
+              visible={`settings-${visible}`}
+              handleChange={handleChange}
+              changeCity={changeCity}
+              hideSettings={hideSettings}
+            />
+          : null
+        }
+
       </div>
     </main>
   )
