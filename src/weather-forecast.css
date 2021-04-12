@@ -39,7 +39,7 @@ main h2 {
     place-items: center;
 }
 
-.container {
+.container-shown {
     position: absolute;
     min-width: 100vw;
     min-height: 100vh;
@@ -51,4 +51,8 @@ main h2 {
     z-index: 1;
     left: 0;
     top: 0;
+}
+
+.settings-hidden {
+    display: none;
 }
