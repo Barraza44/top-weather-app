@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import ISettings from "./interfaces/ISettings";
 import "./settings-prompt.css";
 
-const SettingsPrompt = ({visible,handleChange, changeCity}: ISettings) => {
+const SettingsPrompt = ({visible, handleChange, changeCity, hideSettings}: ISettings) => {
   return (
     <motion.div
       initial={{
@@ -34,7 +34,7 @@ const SettingsPrompt = ({visible,handleChange, changeCity}: ISettings) => {
       </div>
 
       <button className="change" onClick={changeCity}>Change city</button>
-      <button className="done">Done</button>
+      <button className="done" onClick={hideSettings}>Done</button>
     </motion.div>
   );
 }
