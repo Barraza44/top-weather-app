@@ -24,6 +24,13 @@ main h2 {
 
 .head {
     height: 30%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.head h2 {
+    grid-row: 2/3;
 }
 
 .forecast {
@@ -55,4 +62,11 @@ main h2 {
 
 .settings-hidden {
     display: none;
+}
+
+#setting {
+    background: none;
+    border: none;
+    cursor: pointer;
+    justify-self: end;
 }
