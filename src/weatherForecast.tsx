@@ -108,18 +108,15 @@ const WeatherForecast = ({city, geoLocation, changeCity}: IWeather) => {
         ))}
         {
           visible === "shown" ?
-            <div className={`container-${visible}`}/>
+            <div className={`container-${visible}`} >
+              <SettingsPrompt
+                visible={`settings-${visible}`}
+                handleChange={handleChange}
+                changeCity={changeCity}
+                hideSettings={hideSettings}
+              />
+            </div>
             : null
-        }
-        {
-          visible === "shown" ?
-            <SettingsPrompt
-              visible={`settings-${visible}`}
-              handleChange={handleChange}
-              changeCity={changeCity}
-              hideSettings={hideSettings}
-            />
-          : null
         }
 
       </div>
