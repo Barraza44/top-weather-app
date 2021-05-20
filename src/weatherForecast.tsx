@@ -66,7 +66,7 @@ const WeatherForecast = ({city, geoLocation, changeCity}: IWeather) => {
         })
         .finally(() => setLoading(false));
 
-  },[city, geoLocation]);
+  },[city, geoLocation, apiUri, changeCity]);
 
 
   const { unitsArray, temperature: temperatureData } = UnitPicker(units, temperature);
