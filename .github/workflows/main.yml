@@ -19,7 +19,7 @@ jobs:
           npm run-script build
 
       - name: Deploy 🚀
-        uses: Barraza44/github-pages-deploy-action@3.6.2
+        uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
           GITHUB_TOKEN: ${{ secrets.REACT_APP_APIkey }}
           BRANCH: gh-pages
