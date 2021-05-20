@@ -57,6 +57,10 @@ const WeatherForecast = ({city, geoLocation, changeCity}: IWeather) => {
           setDescription(response.weather[0].description);
           setCityName(response.name);
           console.log(response.name);
+        })
+        .catch(() =>{
+          alert(`Your query [${city}] did not throw any results`);
+          changeCity()
         });
 
   },[city, geoLocation]);
