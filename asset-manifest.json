@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/top-weather-app/static/css/main.08f6a9f6.chunk.css",
+    "main.js": "/top-weather-app/static/js/main.96d6a66b.chunk.js",
+    "main.js.map": "/top-weather-app/static/js/main.96d6a66b.chunk.js.map",
+    "runtime-main.js": "/top-weather-app/static/js/runtime-main.f16abbeb.js",
+    "runtime-main.js.map": "/top-weather-app/static/js/runtime-main.f16abbeb.js.map",
+    "static/js/2.8116d928.chunk.js": "/top-weather-app/static/js/2.8116d928.chunk.js",
+    "static/js/2.8116d928.chunk.js.map": "/top-weather-app/static/js/2.8116d928.chunk.js.map",
+    "index.html": "/top-weather-app/index.html",
+    "static/css/main.08f6a9f6.chunk.css.map": "/top-weather-app/static/css/main.08f6a9f6.chunk.css.map",
+    "static/js/2.8116d928.chunk.js.LICENSE.txt": "/top-weather-app/static/js/2.8116d928.chunk.js.LICENSE.txt",
+    "static/media/FeelsLike.605b05b3.svg": "/top-weather-app/static/media/FeelsLike.605b05b3.svg",
+    "static/media/Frame.dd3d54bf.svg": "/top-weather-app/static/media/Frame.dd3d54bf.svg",
+    "static/media/Humidity.dfc91c75.svg": "/top-weather-app/static/media/Humidity.dfc91c75.svg",
+    "static/media/MaxTemp.6de19388.svg": "/top-weather-app/static/media/MaxTemp.6de19388.svg",
+    "static/media/MinTemp.408e9342.svg": "/top-weather-app/static/media/MinTemp.408e9342.svg",
+    "static/media/Wind.311b79ff.svg": "/top-weather-app/static/media/Wind.311b79ff.svg",
+    "static/media/settings.909daaf9.svg": "/top-weather-app/static/media/settings.909daaf9.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f16abbeb.js",
+    "static/js/2.8116d928.chunk.js",
+    "static/css/main.08f6a9f6.chunk.css",
+    "static/js/main.96d6a66b.chunk.js"
+  ]
+}
