@@ -20,7 +20,7 @@ const WeatherInfo = ({number, icon, type, unit}: IWeatherInfo) => {
       weatherData = Math.round(number * 3.6);
       break;
     default:
-      weatherData = number;
+      weatherData = Math.ceil(number);
       break;
   }
 
