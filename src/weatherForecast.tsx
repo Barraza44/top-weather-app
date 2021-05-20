@@ -12,6 +12,7 @@ import settingsIcon from "./vector/settings.svg";
 import "./weather-forecast.css";
 import IWeather from "./interfaces/IWeather";
 import SettingsPrompt from "./SettingsPrompt";
+import UnitPicker from "./UnitPicker";
 
 const WeatherForecast = ({city, geoLocation, changeCity}: IWeather) => {
   console.log(city);
@@ -60,23 +61,8 @@ const WeatherForecast = ({city, geoLocation, changeCity}: IWeather) => {
 
   },[city, geoLocation]);
 
-  let unitsArray: string[];
-  let temperatureData: number;
 
-  switch (units) {
-    case "metric":
-      unitsArray = ["°C", "°C", "°C", "%", "m", "km/h"];
-      temperatureData = temperature;
-      break;
-    case "imperial":
-      unitsArray = ["°F", "°F", "°F", "%", "m", "mph"];
-      temperatureData = (temperature * (9/5) + 32);
-      break;
-    default:
-      unitsArray = ["K", "K", "K", "%", "m", "m/s"];
-      temperatureData = (temperature + 273.15);
-      break;
-  }
+  const { unitsArray, temperature: temperatureData } = UnitPicker(units, temperature);
 
   const handleChange = (e: any) => setUnits(e.target.value);
 
