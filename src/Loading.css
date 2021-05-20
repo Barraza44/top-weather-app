@@ -1,0 +1,38 @@
+.loading-container {
+    position: absolute;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    left: 0;
+    top: 0;
+}
+
+
+.ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #07B2F5;
+    border-color: #07B2F5 transparent #07B2F5 transparent;
+    animation: ring 1.2s linear infinite;
+}
+@keyframes ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

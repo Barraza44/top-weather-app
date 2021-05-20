@@ -13,6 +13,7 @@ import "./weather-forecast.css";
 import IWeather from "./interfaces/IWeather";
 import SettingsPrompt from "./SettingsPrompt";
 import UnitPicker from "./UnitPicker";
+import Loading from "./Loading";
 
 const WeatherForecast = ({city, geoLocation, changeCity}: IWeather) => {
   console.log(city);
@@ -31,6 +32,7 @@ const WeatherForecast = ({city, geoLocation, changeCity}: IWeather) => {
   const [ description, setDescription ] = useState("");
   const [ units, setUnits ] = useState("metric");
   const [ visible, setVisible ] = useState("hidden");
+  const [ loading, setLoading ] = useState(true);
 
   let apiUri: string;
 
@@ -61,7 +63,8 @@ const WeatherForecast = ({city, geoLocation, changeCity}: IWeather) => {
         .catch(() =>{
           alert(`Your query [${city}] did not throw any results`);
           changeCity()
-        });
+        })
+        .finally(() => setLoading(false));
 
   },[city, geoLocation]);
 
@@ -108,7 +111,13 @@ const WeatherForecast = ({city, geoLocation, changeCity}: IWeather) => {
             </div>
             : null
         }
-
+        {
+          loading ?
+            <div className="loading-container">
+              <Loading />
+            </div>
+            : null
+        }
       </div>
     </main>
   )
